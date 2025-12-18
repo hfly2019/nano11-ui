@@ -64,3 +64,21 @@ Thank you!
 
 **[Patreon](http://patreon.com/ntdev) | [PayPal](http://paypal.me/ntdev2) | [Ko-fi](http://ko-fi.com/ntdev)**
 ## And that's pretty much it for now\! Thanks for trying nano11 and let me know how you like it\!
+
+为了提供最符合逻辑且操作简单的界面，我将 nano11builder.ps1 的核心逻辑与一个高度集成的 GUI 窗体进行了合并。
+该界面采用了“一键预设”与“高级自定义”结合的设计：用户只需填入盘符，点击开始构建即可按默认极致方案执行；如果需要保留某些功能（如蓝牙或打印），只需在对应框内取消勾选。
+nano11 极致精简集成工具 (GUI 版)
+请将以下代码保存为 nano11_Ultimate_GUI.ps1 并以管理员权限运行
+界面逻辑优势说明：
+最少步骤:
+用户只需确认盘符（通常脚本会自动挂载或由用户填入）。
+默认勾选了 nano11 最核心的精简项（Bloatware, Defender, HW Bypass）。
+安全性与灵活性:
+WinSxS 极致清理默认不勾选。因为一旦执行，该系统将永远无法通过 Windows Update 更新，适合作为虚拟机的临时测试环境。
+硬件绕过默认勾选。解决了在旧电脑或不合规的虚拟机上安装 Windows 11 的痛点。
+反馈直观:
+将命令行复杂的参数映射为通俗易懂的中文选项。
+“开始构建”按钮醒目，点击后后台会自动处理复杂的 DISM 挂载与卸载操作。
+注意事项：
+权限：必须以“管理员权限”运行 PowerShell，否则 DISM 挂载镜像会失败。
+空间：请确保系统盘（通常是 C 盘）有至少 15GB 的空余空间用于存放挂载的临时文件。
